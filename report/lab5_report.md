@@ -156,17 +156,25 @@ A Python script named `hmac_gen.py` was created to compute an HMAC authenticatio
 ```python
 import hmac
 import hashlib
+import sys
+import os
 
 key = b"secretkey123"
-filename = "message1.txt"
 
-with open(filename, "rb") as f:
+script_dir = os.path.dirname(os.path.abspath(__file__))
+messages_dir = os.path.join(script_dir, "..", "messages")
+
+filename = input("Enter message filename (e.g. message1.txt): ").strip()
+filepath = os.path.join(messages_dir, filename)
+
+with open(filepath, "rb") as f:
     message = f.read()
 
 tag = hmac.new(key, message, hashlib.sha256).hexdigest()
 
 print("Message:", message.decode())
 print("HMAC Tag:", tag)
+
 ```
 
 ### Commands Executed
@@ -186,30 +194,17 @@ python3 hmac_gen.py
 ```
 
 ### Screenshot Evidence
+![alt text](hmac_output_msgs.png)
 
-> **[SCREENSHOT: task3_hmac_script.png]**
-> Shows the contents of `hmac_gen.py` in the terminal (e.g. via `cat hmac_gen.py`).
-
-> **[SCREENSHOT: task3_hmac_output_msg1.png]**
-> Shows execution output for `message1.txt`: message content and HMAC tag.
-
-> **[SCREENSHOT: task3_hmac_output_msg2.png]**
-> Shows execution output after changing `filename` to `message2.txt`.
-
-> **[SCREENSHOT: task3_hmac_output_msg3.png]**
-> Shows execution output after changing `filename` to `message3.txt`.
-
-> **[SCREENSHOT: task3_hmac_modified.png]**
-> Shows the HMAC tag after modifying `message1.txt` slightly, compared to the original tag.
 
 ### Recorded HMAC Tags
 
 | File | HMAC-SHA256 Tag (key: secretkey123) |
 |------|-------------------------------------|
-| message1.txt | [PASTE TAG HERE] |
-| message2.txt | [PASTE TAG HERE] |
-| message3.txt | [PASTE TAG HERE] |
-| message1.txt (modified) | [PASTE TAG HERE] |
+| message1.txt | 223e2b14c5fe1d878c436101936543d5b81bc55a20c94bc30d6cf2ba284fee59 |
+| message2.txt | b94ec115fa380925e2a2272ac479b9ed83b9d689148961d2c870a636d639c752 |
+| message3.txt | cb0bd950268a87b8a73a514c951d20b99bcd9af9f962ea53f60ed09e0b7acbcc |
+| message1.txt (modified) | 98355bb8b5bbc50272e48a98a03537aeb5f2d4a50d7be5cb2055c3d5715b4f85 |
 
 ### Step-by-Step Explanation
 
