@@ -62,7 +62,8 @@ A dedicated working directory named `CSCI-4407-lab5` was created to organize all
 ### Commands Executed
 
 ```bash
-mkdir CSCI-4407-lab5 # created and pulled from github
+mkdir MAC_Lab # created and pulled from github
+cd MAC_Lab
 git clone https://github.com/kennermatt-ucd/CSCI-4407-lab5.git
 cd CSCI-4407-lab5
 pwd
@@ -71,7 +72,7 @@ ls
 
 ### Screenshot Evidence
 
-> **[SCREENSHOT: task1_directory_setup.png]**
+![alt text](task1_directory_setup.png)
 > Shows terminal output of `mkdir CSCI-4407-lab5`, `cd MAC_Lab`, `pwd` displaying the full path, and `ls` confirming the directory is empty.
 
 ### Explanation
@@ -109,31 +110,34 @@ sha256sum message1.txt
 
 ### Screenshot Evidence
 
-> **[SCREENSHOT: task2_message_creation.png]**
+![alt text](task2_echo.png)
+![alt text](task2_cat.png)
 > Shows the three `echo` commands creating the message files and confirmation via `cat`.
 
-> **[SCREENSHOT: task2_file_sizes.png]**
+![alt text](task2_file_sizes.png)
 > Shows `ls -l message*.txt` output with file sizes.
 
-> **[SCREENSHOT: task2_hashes.png]**
+![alt text](task2_hashes.png)
 > Shows the SHA-256 hash values for all three original messages.
 
-> **[SCREENSHOT: task2_modified_hash.png]**
+![alt text](task2_re_hash.png)
 > Shows the recomputed hash of `message1.txt` after the amount was changed from 100 to 1000.
 
 ### Recorded Hash Values (Original)
 
 | File | SHA-256 Hash |
 |------|-------------|
-| message1.txt | [PASTE HASH HERE] |
-| message2.txt | [PASTE HASH HERE] |
-| message3.txt | [PASTE HASH HERE] |
+| message1.txt | cd6bafdb58bffad3e22a31799be12860fb5add65c3fd2a9b9bfd562f035fd97c1 |
+| message2.txt | 8e6d7f11d2e3185eb205037d9bb5fde4b21cae575222cb5fd48f54de17167cd1 |
+| message3.txt | a1a3d085142fb75c2e940b9e35e904cbef83c60ba14520576e775ff26d4d624f |
 
 ### Recorded Hash After Modification
 
+"Transfer 1000 dollars to Bob"
+
 | File | SHA-256 Hash (Modified) |
 |------|------------------------|
-| message1.txt | [PASTE HASH HERE] |
+| message1.txt | 83474ade2dc54f59df69d10e50d6e090f72b8d1fc5bbbbcd87c403b262c7869d |
 
 ### Explanation
 
