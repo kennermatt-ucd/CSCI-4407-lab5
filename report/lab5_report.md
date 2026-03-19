@@ -371,25 +371,31 @@ python3 hmac_multi.py
 
 ### Screenshot Evidence
 
+
+
 > **[SCREENSHOT: task6_multi_output.png]**
 > Shows execution of `hmac_multi.py` with HMAC tags for all three messages.
+![hmac before](task6pt1.png)
+
 
 > **[SCREENSHOT: task6_modified_output.png]**
 > Shows execution after `message2.txt` was slightly modified, with the changed tag.
+![hmac before](task6pt2.png)
+
+
 
 ### Comparison of Authentication Tags
 
 | Message File | Original Tag | Tag After Modification |
 |-------------|-------------|----------------------|
-| message1.txt | [PASTE TAG] | (unchanged) |
-| message2.txt | [PASTE TAG] | [PASTE NEW TAG] |
-| message3.txt | [PASTE TAG] | (unchanged) |
-
+| message1.txt | 223e2b14c5fe1d878c436101936543d5b81bc55a20c94bc30d6cf2ba284fee59 | (unchanged) |
+| message2.txt | b94ec115fa380925e2a272ac479b9ed83b9d689148961d2c870a636d639c752 | d5fbe0eed5a62daac31c23e351e08eba80174be56d470e81afa0dd3dce7e36c5 |
+| message3.txt | cb0bd950268a87b8a73a514c951d20b99bcd9af9f962ea53f60ed09e0b7acbcc | (unchanged) |
 ### Explanation
 
 Each message produces a distinct HMAC tag even though the same key is used for all three. This is a consequence of HMAC's design: the message content is one of the inputs to the hash function, so different message inputs yield different hash outputs. This property is necessary for a MAC to be useful — if two different messages could produce the same tag, an attacker could substitute one message for another while keeping the valid tag.
 
-After modifying a single word in `message2.txt`, the generated tag changed completely. This behavior prevents message forgery: an attacker who wants to tamper with a message and keep it valid would need to produce a new correct tag, which requires knowing the secret key.
+After modifying a single word in `message2.txt`, the generated tag changed completely. This behavior prevents message forgery: an attacker who wants to tamper with a message and keep it valid would need to produce a new correct tag, which requires knowing the secret key.  Even when the same key is used, different messages produce different HMAC tags because the message itself is part of the hash input, so any change in the message results in a completely different output.
 
 ---
 
