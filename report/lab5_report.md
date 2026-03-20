@@ -412,7 +412,7 @@ The secret key in `hmac_multi.py` was changed twice and the script was rerun eac
 nano hmac_multi.py
 python3 hmac_multi.py
 
-# Key change 2: set key = b"group10key2026" in hmac_multi.py
+# Key change 2: set key = b"group10secret123" in hmac_multi.py
 nano hmac_multi.py
 python3 hmac_multi.py
 ```
@@ -421,17 +421,20 @@ python3 hmac_multi.py
 
 > **[SCREENSHOT: task7_key_change1.png]**
 > Shows output with `newsecret456` — all tags differ from the originals.
-
+![task 7 new key](task7pt1.png)
 > **[SCREENSHOT: task7_key_change2.png]**
-> Shows output with `group10key2026` — all tags differ again.
+> Shows output with `group10secret123` — all tags differ again.
+![task 7 differnt new key](task7pt2.png)
+
+### Comparison of Tags Across Keys
 
 ### Comparison of Tags Across Keys
 
 | Message | Key: secretkey123 | Key: newsecret456 | Key: group10key2026 |
 |---------|-------------------|-------------------|---------------------|
-| message1.txt | [PASTE] | [PASTE] | [PASTE] |
-| message2.txt | [PASTE] | [PASTE] | [PASTE] |
-| message3.txt | [PASTE] | [PASTE] | [PASTE] |
+| message1.txt | 223e2b14c5fe1d878c436101936543d5b81bc55a20c94bc30d6cf2ba284fee59 | 42a6ed3fefa7f2e49ebe097f8687dc8597a2991040178b4c0469b62626fa10e7 | 2d788d94875efef2c06260bd000e74aeac3f94f4078e1b7a4820fca123c88c3e |
+| message2.txt | b94ec115fa380925e2a272ac479b9ed83b9d689148961d2c870a636d639c752 | 0633628fbe6d0daaea77ea14369a9c6fb129894a96483b60ca05410c8ccee486 | 4ea425858a0cb70e85f6feb0b72112a9efa03ccf640be514db9d2498cbe29f1b |
+| message3.txt | cb0bd950268a87b8a73a514c951d20b99bcd9af9f962ea53f60ed09e0b7acbcc | fdbcbc7a3734dc0c2595db5962a294960a13f029c071c71d3609979ac4318683 | da8f88b99d9061e601b1e9b8432ccf950c081b61b97371a704e026851727dcc |
 
 ### Explanation
 
@@ -439,7 +442,7 @@ The HMAC construction incorporates the secret key at two levels: before and afte
 
 This property is critical for security. Because the tag depends on the key, an attacker who does not know the key cannot compute the correct tag for any message, including messages the attacker has never seen. Even if an adversary collects many valid `(M, T)` pairs, they cannot produce a valid tag for a new message without access to the secret key.
 
-Keeping the secret key private is therefore the foundation of MAC security. If the key is compromised, the entire authentication mechanism fails, as any party with the key can generate valid tags for arbitrary messages.
+Keeping the secret key private is therefore the foundation of MAC security. If the key is compromised, the entire authentication mechanism fails, as any party with the key can generate valid tags for arbitrary messages. This proves that without the correct secret key, it is computationally infeasible to generate valid authentication tags, ensuring both message integrity and authenticity.
 
 ---
 
