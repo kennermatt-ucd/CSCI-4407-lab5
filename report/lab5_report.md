@@ -578,17 +578,19 @@ python3 prf_experiment.py
 
 ### Screenshot Evidence
 
-> **[SCREENSHOT: task9_prf_script.png]**
+> **[SCREENSHOT: task9.png]**
 > Shows the full `prf_experiment.py` script in the terminal.
-
-> **[SCREENSHOT: task9_experiment1.png]**
+![Task 9 full experiment](task9.png)
+> **[SCREENSHOT: task9experiment1.png]**
 > Shows authentication tags for all three original messages using `myGroupKey789`.
-
-> **[SCREENSHOT: task9_experiment2.png]**
+![task 9 experiment 1](task9experiment1.png)
+> **[SCREENSHOT: task9experiment2.png]**
 > Shows how the tag for the second message changes after modifying the amount from 500 to 999.
+![task 9 experiment 2](task9experiment2.png)
 
-> **[SCREENSHOT: task9_experiment3.png]**
+> **[SCREENSHOT: task9experiment3.png]**
 > Shows how all tags change when the key is switched to `differentKey321`.
+![task 9 experiment 3](task9experiment3.png)
 
 ### Recorded Results
 
@@ -596,25 +598,25 @@ python3 prf_experiment.py
 
 | Message | Auth Tag |
 |---------|---------|
-| Transfer 100 dollars to Bob | [PASTE] |
-| Transfer 500 dollars to Alice | [PASTE] |
-| Authorize access to server room | [PASTE] |
+| Transfer 100 dollars to Bob | 09dbc63dcebdc01d0399dcb9bba399285a9670c8ecb22566d4022c16e9a7c474 |
+| Transfer 500 dollars to Alice | 013851f6de9e45eec7604dc723e2ade00ff7c9d85cf6866e94573b146e71f433 |
+| Authorize access to server room | 9c9ac130fb34ff3ce30f8b6322932c14f4ed95406d0a65527ee826387d018b9b |
 
 **Experiment 2 – Modified Message 2, Same Key**
 
 | Message | Auth Tag |
 |---------|---------|
-| Transfer 100 dollars to Bob | [PASTE — same as Exp 1] |
-| Transfer 999 dollars to Bob | [PASTE — different from Exp 1] |
-| Authorize access to server room | [PASTE — same as Exp 1] |
+| Transfer 100 dollars to Bob | 09dbc63dcebdc01d0399dcb9bba399285a9670c8ecb22566d4022c16e9a7c474 |
+| Transfer 999 dollars to Bob | 8e8db9b36af829a9380a8a8deedca679e7e4215b35ce70a9e044f010ee65fe46 |
+| Authorize access to server room | 9c9ac130fb34ff3ce30f8b6322932c14f4ed95406d0a65527ee826387d018b9b |
 
 **Experiment 3 – Original Messages, Key: differentKey321**
 
 | Message | Auth Tag |
 |---------|---------|
-| Transfer 100 dollars to Bob | [PASTE — different from Exp 1] |
-| Transfer 500 dollars to Alice | [PASTE — different from Exp 1] |
-| Authorize access to server room | [PASTE — different from Exp 1] |
+| Transfer 100 dollars to Bob | 8ac6e29bad85d75a150b2a74abe5441372cd0b525a552bdbd9c40e5740554f09 |
+| Transfer 500 dollars to Alice | d21d939898584f029335c974cd395d6e145dadb87233d57f97c5741229682bb0 |
+| Authorize access to server room | 57197805efa946e00a3a73e7757e68dc05d8ea79da8407d5b5df9e9baebb45b9 |
 
 ### Analysis Questions
 
