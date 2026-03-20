@@ -265,16 +265,18 @@ python3 hmac_verify.py
 
 ### Screenshot Evidence
 
-> **[SCREENSHOT: task4_verify_success.png]**
+![alt text](Task4A.png)
 > Shows the script accepting the correct HMAC tag and printing "Verification successful: Message is authentic."
 
-> **[SCREENSHOT: task4_verify_wrong_tag.png]**
+![alt text](Task4B.png)
 > Shows the script rejecting an incorrect tag (one character changed) and printing the failure message.
 
-> **[SCREENSHOT: task4_verify_modified_message.png]**
+![alt text](Task4C.png)
 > Shows the script rejecting the original tag when the message file was modified.
 
-> **[SCREENSHOT: task4_verify_msg2.png]**
+![alt text](Task4D.png)
+![alt text](Task4E.png)
+![alt text](Task4F.png)
 > Shows verification repeated for `message2.txt` with its correct tag.
 
 ### Explanation
@@ -296,32 +298,31 @@ A message tampering experiment was conducted to demonstrate that a MAC detects u
 ### Commands Executed
 
 ```bash
-# Restore original message
-echo "Transfer 100 dollars to Bob" > message1.txt
-cat message1.txt
-
 # Modification 1
 echo "Transfer 9000 dollars to Eve" > message1.txt
+cat message1.txt
 python3 hmac_verify.py
 
 # Modification 2
 echo "Transfer 100 dollars to Eve" > message1.txt
+cat message1.txt
 python3 hmac_verify.py
 
 # Modification 3
 echo "Transfer 100 dollars to Bob immediately" > message1.txt
+cat message1.txt
 python3 hmac_verify.py
 ```
 
 ### Screenshot Evidence
 
-> **[SCREENSHOT: task5_tamper1.png]**
+![alt text](Task5A.png)
 > Shows the first modified message content and the verification failure output.
 
-> **[SCREENSHOT: task5_tamper2.png]**
+![alt text](Task5B.png)
 > Shows the second modification and verification failure.
 
-> **[SCREENSHOT: task5_tamper3.png]**
+![alt text](Task5C.png)
 > Shows the third modification and verification failure.
 
 ### Explanation
@@ -482,37 +483,27 @@ python3 hmac_verify.py   # enter the new tag
 
 ### Screenshot Evidence
 
-> **[SCREENSHOT: task8_original_message.png]**
+![alt text](Task8A.png)
 > Shows the restored message content.
-
-> **[SCREENSHOT: task8_tag_generation.png]**
-> Shows the HMAC tag generated for the original message. **Recorded tag:** `[PASTE TAG HERE]`
-
-> **[SCREENSHOT: task8_verify_first.png]**
+> Shows the HMAC tag generated for the original message. **Recorded tag:** `223e2b14c5fe1d878c436101936543d5b81bc55a20c94bc30d6cf2ba284fee59`
 > Shows "Verification successful" for the first (legitimate) verification.
 
-> **[SCREENSHOT: task8_replay_second.png]**
+![alt text](Task8B.png)
 > Shows the same message accepted again on the second submission — "Verification successful."
-
-> **[SCREENSHOT: task8_replay_third.png]**
 > Shows the message accepted a third time with the same tag — "Verification successful."
 
-> **[SCREENSHOT: task8_timestamp_message.png]**
+![alt text](Task8C.png)
 > Shows the updated message with embedded timestamp.
-
-> **[SCREENSHOT: task8_timestamp_tag.png]**
 > Shows the new HMAC tag generated for the timestamped message.
-
-> **[SCREENSHOT: task8_timestamp_verify.png]**
 > Shows successful verification of the timestamped message with its new tag.
 
 ### Summary of Replay Results
 
 | Attempt | Message | Tag Used | Result |
 |---------|---------|----------|--------|
-| First (legitimate) | Transfer 100 dollars to Bob | [TAG] | Verification successful |
-| Second (replay) | Transfer 100 dollars to Bob | [TAG] | Verification successful |
-| Third (replay) | Transfer 100 dollars to Bob | [TAG] | Verification successful |
+| First (legitimate) | Transfer 100 dollars to Bob | [223e2b14c5fe1d878c436101936543d5b81bc55a20c94bc30d6cf2ba284fee59] | Verification successful |
+| Second (replay) | Transfer 100 dollars to Bob | [223e2b14c5fe1d878c436101936543d5b81bc55a20c94bc30d6cf2ba284fee59] | Verification successful |
+| Third (replay) | Transfer 100 dollars to Bob | [223e2b14c5fe1d878c436101936543d5b81bc55a20c94bc30d6cf2ba284fee59] | Verification successful |
 
 ### Explanation: Why the Replay Succeeds
 
